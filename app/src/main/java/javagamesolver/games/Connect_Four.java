@@ -175,13 +175,12 @@ public class Connect_Four implements Game {
         // Check all first column diagonals
         for (int row = 0; row < row_len; row++) {
             if (check_diagonal_up(piece, row, 0) ||
-                    check_diagonal_up(piece, row, col_len)) {
+                    check_diagonal_down(piece, row, 0)) {
                 return true;
             }
 
         }
 
-        // Check bottom row diagonals
         for (int col = 1; col < col_len; col++) {
             if (check_diagonal_up(piece, row_len - 1, col) ||
                     check_diagonal_down(piece, 0, col)) {
