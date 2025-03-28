@@ -35,7 +35,7 @@ public class MCTS implements GameStrategy {
         Map<String, Object> best_game_and_score = possible_games.parallelStream()
                 .map(possible_game -> {
                     int score = IntStream.range(0, 100000).parallel()
-                            .map(_indice -> calculate_score(game, player))
+                            .map(_indice -> calculate_score(possible_game, player))
                             .sum();
                     return Map.of("score", score, "game", possible_game);
                 }).reduce(Map.of("score", Integer.MIN_VALUE), (a, b) -> {
